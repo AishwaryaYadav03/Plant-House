@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ </head>
+<body>
+  <div class="form-container">
+    <h2>Plant House</h2>
+    <form onsubmit="submitSignUpForm(event)">
+      <label for="Name" class="form-label">Name:</label>
+      <input type="text" id="name" name="Name" class="form-input">
+
+      <label for="Email" class="form-label">Email:</label>
+      <input type="email" id="Email" name="Email" class="form-input">
+
+      <label for="Phone_No" class="form-label">Phone_No:</label>
+      <input type="text" id="Phone_No" name="Phone_No" class="form-input">
+
+      <label for="address" class="form-label">Address:</label>
+      <input type="text" id="address" name="address" class="form-input">
+      <button type="button" class="form-button" onclick="submitSignUpForm()">Submit</button>
+    </form>
+  </div>
+
+  <script>
+      function submitSignUpForm() {
+      let nameInput = document.getElementById('name')
+      let emailInput = document.getElementById('Email');
+      let phoneInput = document.getElementById('Phone_No');
+      let addressInput = document.getElementById('address');
+
+      let name = nameInput.value.trim();
+      let email = emailInput.value.trim();
+      let phoneNo = phoneInput.value.trim();
+      let address = addressInput.value.trim();
+
+      if (!name || !email || !phoneNo || !address) {
+        Swal.fire({
+          title: "Error!",
+          text: "Please fill in all the required fields.",
+          icon: "error"
+        });
+        return;
+      }
+
+      Swal.fire({
+        title: "Good job!",
+        text: "Sign Up Successful!",
+        icon: "success"
+      });
+      setTimeout(function () {
+
+      }, 3000);
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
